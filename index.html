@@ -1614,9 +1614,8 @@
     html.is-fullscreen .dashboard-wrapper,
     :fullscreen .dashboard-wrapper {
       zoom: var(--fs-scale, 1.25);
-      max-width: calc(1260px * var(--fs-scale, 1.25));
+      max-width: 1260px;
       width: 100%;
-      transition: max-width 0.25s ease;
     }
 
     html.is-fullscreen .app-footer,
@@ -3066,6 +3065,7 @@
       if (window.location.hash === '#fullscreen') {
         document.documentElement.classList.add('is-fullscreen');
         updateFullscreenScale();
+        updateFullscreenButtonUI(true);
         const requestOnGesture = () => {
           if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen().catch(() => {});
@@ -3077,6 +3077,45 @@
         document.addEventListener('touchstart', requestOnGesture, { once: true });
       }
     }
+
+    // Fullscreen and hash synchronization listeners
+    document.addEventListener('fullscreenchange', () => {
+      const isFs = !!document.fullscreenElement;
+      if (isFs) {
+        if (window.location.hash !== '#fullscreen') {
+          history.replaceState(null, '', '#fullscreen');
+        }
+        document.documentElement.classList.add('is-fullscreen');
+      } else {
+        if (window.location.hash === '#fullscreen') {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+        document.documentElement.classList.remove('is-fullscreen');
+      }
+      updateFullscreenScale();
+      updateFullscreenButtonUI(isFs);
+    });
+
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#fullscreen') {
+        document.documentElement.classList.add('is-fullscreen');
+        updateFullscreenScale();
+        updateFullscreenButtonUI(true);
+      } else {
+        document.documentElement.classList.remove('is-fullscreen');
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+        updateFullscreenScale();
+        updateFullscreenButtonUI(false);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (document.documentElement.classList.contains('is-fullscreen') || document.fullscreenElement) {
+        updateFullscreenScale();
+      }
+    });
 
     // Setup Modal & Button Handlers
     function setupModalEvents() {
@@ -3194,6 +3233,7 @@
     // Initial Start
     window.addEventListener('DOMContentLoaded', () => {
       loadSavedState();
+      checkInitialFullscreenHash();
       setupModalEvents();
       fetchWeatherData(AppState.location.latitude, AppState.location.longitude);
 
