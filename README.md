@@ -35,22 +35,6 @@ De web app beantwoordt direct de belangrijkste vraag van elke motorrijder:
 
 ---
 
-## 🚀 Publiceren naar GitHub Pages
-
-Je kunt deze applicatie in minder dan 1 minuut live zetten op GitHub Pages:
-
-1. Maak een nieuwe repository aan op GitHub, bijvoorbeeld genaamd `RideOrDieWeather`.
-2. Upload of commit `index.html` naar de `main` (of `master`) branch.
-3. Ga in GitHub naar **Settings** -> **Pages**.
-4. Kies onder **Build and deployment** bij Source voor **Deploy from a branch**.
-5. Selecteer branch `main` en map `/ (root)`, en klik op **Save**.
-6. Na circa 30 seconden is je pagina live op:
-   ```
-   https://<jouw-github-gebruikersnaam>.github.io/RideOrDieWeather/
-   ```
-
----
-
 ## 🛠️ Technische Details
 
 - **Bestand**: `index.html` (bevat HTML, CSS en JavaScript)
