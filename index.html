@@ -1949,8 +1949,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--glass-border);
+      padding-bottom: 4px;
+      border-bottom: none;
       width: 100%;
       flex-shrink: 0;
     }
@@ -2119,8 +2119,8 @@
     .simple-temp-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
+      justify-content: flex-start;
+      gap: 14px;
     }
 
     .simple-temp-wrap {
@@ -2351,10 +2351,11 @@
     .simple-extra-section {
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 8px;
       width: 100%;
-      border-top: 1px solid var(--glass-border);
-      padding-top: 7px;
+      border: none;
+      padding-top: 2px;
+      margin-top: 4px;
       box-sizing: border-box;
       flex-shrink: 0;
     }
@@ -2412,39 +2413,52 @@
     .simple-gear-box {
       display: flex;
       align-items: center;
-      gap: 7px;
-      background: var(--glass-bg-subtle);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-sm);
-      padding: 5px 9px;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      padding: 2px 0 0 0;
       width: 100%;
       box-sizing: border-box;
       min-width: 0;
     }
 
     .simple-gear-icon {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .simple-gear-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
       flex-shrink: 0;
     }
 
     .simple-gear-chips {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       flex-wrap: wrap;
       min-width: 0;
     }
 
     .simple-gear-chips .gear-pill {
-      font-size: 0.68rem;
-      padding: 2px 7px;
-      background: var(--glass-bg);
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      background: var(--glass-bg-subtle);
       border: 1px solid var(--glass-border);
       border-radius: var(--radius-pill);
-      font-weight: 700;
+      font-weight: 600;
       color: var(--text-main);
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition-fast);
     }
 
     /* ==========================================================================
@@ -2479,9 +2493,6 @@
         min-width: 0 !important;
         flex: 1 !important;
         justify-content: space-around !important;
-      }
-      .simple-divider {
-        display: none !important;
       }
       .simple-commute-preview {
         grid-template-columns: 1fr 1fr !important;
@@ -2519,18 +2530,11 @@
       }
       .simple-main-grid {
         display: grid !important;
-        grid-template-columns: minmax(280px, 320px) auto minmax(360px, 1.4fr) !important;
-        gap: 14px !important;
+        grid-template-columns: minmax(280px, 320px) minmax(360px, 1.4fr) !important;
+        gap: 16px !important;
         align-items: center !important;
         flex: 1 !important;
         min-width: 0 !important;
-      }
-      .simple-divider {
-        display: block !important;
-        width: 1px !important;
-        height: 100% !important;
-        min-height: 110px !important;
-        background: linear-gradient(180deg, transparent, var(--glass-border), transparent) !important;
       }
       .simple-extra-section {
         display: none !important;
@@ -2550,30 +2554,158 @@
       }
     }
 
-    /* 3. DESKTOP / LARGE DISPLAY (1080p, 1440p, Tablet) */
+    /* 3. DESKTOP / LARGE DISPLAY (1080p, 1440p) - Ruimtelijk & Ademend */
     @media (min-width: 960px) and (min-height: 581px) {
+      body.is-simple-mode .dashboard-wrapper {
+        padding: 24px !important;
+      }
       .simple-combined-card {
-        max-width: 900px !important;
+        max-width: 1040px !important;
         height: auto !important;
-        max-height: calc(100vh - 40px) !important;
-        padding: 18px 24px !important;
-        gap: 12px !important;
-        border-radius: var(--radius-xl) !important;
+        max-height: calc(100vh - 48px) !important;
+        padding: 22px 28px !important;
+        gap: 14px !important;
+        border-radius: 28px !important;
+      }
+      .simple-header-row {
+        padding-bottom: 4px !important;
+        border-bottom: none !important;
+      }
+      .simple-city-name {
+        font-size: 1.45rem !important;
+      }
+      .simple-location-pin {
+        width: 38px !important;
+        height: 38px !important;
+      }
+      .simple-date-str {
+        font-size: 0.78rem !important;
+      }
+      .simple-time-badge {
+        font-size: 0.82rem !important;
+        padding: 5px 12px !important;
+      }
+      .simple-theme-btn {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 14px !important;
+      }
+      .simple-switch-text {
+        display: inline !important;
+      }
+      .simple-switch-btn {
+        padding: 6px 14px !important;
+        font-size: 0.82rem !important;
+        gap: 7px !important;
       }
       .simple-main-grid {
         display: grid !important;
-        grid-template-columns: 290px auto 1fr !important;
-        gap: 18px !important;
+        grid-template-columns: 320px 1fr !important;
+        gap: 32px !important;
         align-items: center !important;
       }
-      .simple-divider {
-        display: block !important;
+      .simple-weather-section {
+        gap: 8px !important;
+      }
+      .simple-temp-val {
+        font-size: 3.2rem !important;
+      }
+      .simple-temp-unit {
+        font-size: 1.5rem !important;
+      }
+      .simple-icon-wrap {
+        width: 56px !important;
+        height: 56px !important;
+      }
+      .simple-condition-text {
+        font-size: 1.15rem !important;
+      }
+      .simple-stats-pills {
+        gap: 6px !important;
+      }
+      .simple-stat-pill {
+        padding: 4px 10px !important;
+        font-size: 0.76rem !important;
+      }
+      .simple-wind-bar {
+        padding: 6px 12px !important;
+        font-size: 0.78rem !important;
+      }
+      .simple-verdict-section {
+        gap: 8px !important;
+      }
+      .simple-verdict-headline {
+        font-size: 1.25rem !important;
+        line-height: 1.25 !important;
+      }
+      .simple-verdict-explanation {
+        font-size: 0.84rem !important;
+        line-height: 1.45 !important;
+      }
+      .simple-commute-preview {
+        gap: 10px !important;
+      }
+      .simple-commute-chip {
+        padding: 8px 12px !important;
+        gap: 10px !important;
+        border-radius: var(--radius-md) !important;
+      }
+      .simple-commute-icon {
+        font-size: 1.35rem !important;
+      }
+      .simple-commute-name {
+        font-size: 0.76rem !important;
+      }
+      .simple-commute-badge {
+        font-size: 0.68rem !important;
+        padding: 2px 7px !important;
+      }
+      .simple-commute-status {
+        font-size: 0.78rem !important;
       }
       .simple-extra-section {
         display: flex !important;
+        border-top: none !important;
+        padding-top: 4px !important;
+        margin-top: 4px !important;
+        gap: 10px !important;
       }
       .simple-safety-grid {
         grid-template-columns: repeat(4, 1fr) !important;
+        gap: 10px !important;
+      }
+      .simple-safety-mini-card {
+        padding: 8px 12px !important;
+        gap: 4px !important;
+        border-radius: var(--radius-md) !important;
+      }
+      .simple-safety-label {
+        font-size: 0.72rem !important;
+      }
+      .simple-safety-tag {
+        font-size: 0.68rem !important;
+      }
+      .simple-safety-val {
+        font-size: 0.95rem !important;
+      }
+      .simple-gear-box {
+        padding: 0 !important;
+        gap: 10px !important;
+        background: transparent !important;
+        border: none !important;
+      }
+      .simple-gear-icon {
+        font-size: 1.2rem !important;
+      }
+      .simple-gear-label {
+        font-size: 0.74rem !important;
+      }
+      .simple-gear-chips {
+        gap: 6px !important;
+      }
+      .simple-gear-chips .gear-pill {
+        padding: 4px 10px !important;
+        font-size: 0.74rem !important;
       }
     }
 
@@ -3150,9 +3282,6 @@
             </div>
           </div>
 
-          <!-- Divider -->
-          <div class="simple-divider"></div>
-
           <!-- Rechts: Motoradvies Banner -->
           <div class="simple-verdict-section">
             <div class="simple-verdict-top-tags">
@@ -3255,6 +3384,7 @@
           <!-- Gear Pills in Simple View -->
           <div class="simple-gear-box">
             <span class="simple-gear-icon">🦺</span>
+            <span class="simple-gear-label">Uitrusting:</span>
             <div class="simple-gear-chips" id="simple-gear-chips">
               <span class="gear-pill">Uitrusting laden...</span>
             </div>
