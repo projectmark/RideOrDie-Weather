@@ -8,8 +8,8 @@
 
 - **🏍️ Woon-Werk Motoradvies (Commute Command Center)**:
   Beantwoordt direct de belangrijkste vraag: *"Kan ik vandaag veilig en droog met de motor naar het werk en weer terug?"*. Analyseert jouw specifieke vertrektijd voor de **ochtendrit (heen)** en **avondrit (terug)**, toont een directe score (*Index 0-100*) en een duidelijk verdict: 🟢 **RIDE ON!**, 🟡 **PAS OP!** of 🔴 **RIDE OR DIE!**.
-- **⛶ Fullscreen Kiosk Mode (`#fullscreen`)**:
-  Met één klik op de fullscreen-knop (of via URL hash `#fullscreen`) opent de app in randloze kiosk-modus. Op grotere displays (zoals laptops, tablets en 1280x720 / 1280x800 cockpit-schermen) **vergroot de interface schermvullend mee tot max 125%** voor maximale leesbaarheid tijdens het rijden. Sluit af via de knop of met **ESC**.
+- **⛶ Adaptieve Schaling & Fullscreen Kiosk Mode (`#fullscreen`)**:
+  Met één klik op de fullscreen-knop (of via URL hash `#fullscreen`) opent de app in randloze kiosk-modus. Op grotere schermen (zoals een **24 inch monitor**, desktop of tablet) **schaalt de interface dynamisch mee (tot 145% in fullscreen en 125% in normale venstermodus)** zodat alles royaal ademt en perfect leesbaar is. Op compacte schermen (zoals 7-8 inch cockpits of laptops) blijft de lay-out automatisch strak en compact vergrendeld op 100%. Sluit fullscreen af via de knop of met **ESC**.
 - **🔲 Simple Mode — 1 Schermvullend Widget (`#simple`)**:
   Activeer via de toggle-knop naast de fullscreen-knop (of via `#simple`). Verbergt alle secundaire grafieken en tabellen en combineert het **Actuele Weer** en het **Motoradvies** tot **één rustig, schermvullend glazen widget**. Ideaal als minimalistische boordcomputer op het stuur of dashboard.
 - **☀️ Heldere Light Mode Standaard**:
@@ -34,9 +34,10 @@ Met de **Simple Mode** knop (direct naast de fullscreen knop in de navigatiebalk
 - **Cockpit Focus**: Geen afleiding van lange lijsten of tabellen; alle essentiële info is in één snelle blik leesbaar.
 - **Geheugen & URL**: Jouw keuze wordt bewaard in `localStorage` en gesynchroniseerd in de browserlink (`#simple`).
 
-### 2. Fullscreen Kiosk Mode (Max 125% Vergroot)
-- **Adaptieve Kiosk Schaling**: Berekent de schermverhouding en vergroot de UI dynamisch tot maximaal **125%** (`zoom: 1.25`) op schermen met voldoende ruimte (zoals 1080p, 1440p of 7-8 inch tablets in landscape).
-- **Veilig voor kleinere schermen**: Op schermen smaller dan 1260px blijft de schaalfactor vergrendeld op `1.0`, zodat mobiele media-queries en layoutregels behouden blijven zonder vervorming.
+### 2. Adaptieve Schaling & Fullscreen Kiosk Mode (Meer ademruimte)
+- **Royale Weergave op Grote Schermen**: Op grotere monitoren (bijv. een 24 inch 1080p scherm of groter) schaalt de interface automatisch mee en krijgen widgets meer tussenruimte (gap/padding), zodat de pagina natuurlijk ademt in plaats van gecentreerd te zijn in een smal koker-kader.
+- **Fullscreen Kiosk Schaling (tot 145%)**: In fullscreen berekent de app de beschikbare resolutie en vergroot mee tot maximaal **145%** (`zoom: 1.45`), waardoor het hele display indrukwekkend schermvullend gevuld wordt.
+- **Compact op Kleinere Displays**: Wordt het venster kleiner of draait de app op een 7-8 inch cockpit (1280x720 / 1280x800) of tablet, dan vergrendelt de schaalfactor automatisch op `1.0` (100%), waardoor de lay-out compact en strak blijft zonder scrollbars of vervorming.
 - **URL Koppeling**: Voegt automatisch `#fullscreen` toe aan de URL. Een bladwijzer of snelkoppeling direct naar `index.html#fullscreen` start meteen in kiosk-stand.
 - **Combineren mogelijk**: Je kunt Simple Mode en Fullscreen gelijktijdig gebruiken (`#fullscreen&simple`) voor een volwaardige digitale motorcockpit.
 
@@ -82,28 +83,20 @@ Je kunt de web app direct opstarten in een gewenste stand via de browser-URL:
 
 ---
 
-## ⚙️ Aanpasbare Instellingen
-
-Klik op het tandwiel-icoon of de locatieknop om jouw voorkeuren aan te passen:
-- **Woon-werk Tijden**: Stel jouw exacte ochtend- en avondvertrektijd in (bijv. 07:30 en 16:30).
-- **Minimum Temperatuur**: Stel in vanaf welke temperatuur jij het comfortabel vindt om te rijden.
-- **Maximale Windstoten**: Bepaal jouw persoonlijke windlimiet (standaard 55 km/u).
-- **Locatie**: Kies via GPS, zoek op elke Nederlandse plaatsnaam/postcode, of gebruik de snelle stadsknoppen (*Utrecht, Amsterdam, Rotterdam, Ameide, Eindhoven, Groningen, etc.*).
-
----
-
-## 🚀 Publiceren naar GitHub Pages
-
-De app is 100% self-contained in `index.html` en draait zonder server of build-stappen:
-
-1. Push `index.html` en `README.md` naar jouw GitHub repository (bijv. `RideOrDieWeather`).
-2. Ga in GitHub naar **Settings** ➔ **Pages**.
-3. Selecteer onder **Build and deployment** bij Source: **Deploy from a branch**.
-4. Kies branch `master` (of `main`) en map `/ (root)`, en klik op **Save**.
-5. Binnen circa 1 minuut is jouw cockpit live op:
-   ```
-   https://<jouw-github-gebruikersnaam>.github.io/RideOrDieWeather/
-   ```
+## 📍 Snelle Locatiewissel & Instellingen
+ 
+- **📍 Gecentreerde Locatiekiezer in de Navigatiebalk**:
+  Midden in de navigatiebalk (op mobiel én desktop direct met de duim bereikbaar) staat jouw huidige locatie weergegeven als een duidelijke interactieve pill-knop. Eén klik opent direct het speciale **Locatiescherm**:
+  - Direct zoeken op elke Nederlandse plaatsnaam of postcode met realtime zoeksuggesties.
+  - Snelle knoppen voor populaire steden (*Utrecht, Amsterdam, Rotterdam, Den Haag, Eindhoven, Groningen, etc.*).
+  - Snelle GPS-knop om je actuele coördinaten direct over te nemen.
+  - Een klik op een plaats stelt deze direct in en sluit het venster automatisch.
+- **⚙️ Instellingen & Reistijden (`#settings-modal`)**:
+  Klik op het tandwiel-icoon rechtsboven voor jouw persoonlijke motorvoorkeuren:
+  - **Themakeuze**: Wissel snel tussen Licht (standaard), Automatisch en Donker.
+  - **Woon-werk Vertrektijden**: Stel jouw ochtendvertrektijd (heen) en avondvertrektijd (terug) in.
+  - **Motorrijder Comfort & Toleranties**: Stel jouw minimale comforttemperatuur en maximale windstoot-limiet in.
+  - Klik op "Instellingen Opslaan" om het advies en de risicometers direct opnieuw te berekenen.
 
 ---
 
