@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>☀️ Ride Or Die ⛈️</title>
   <meta name="description" content="Het ultieme motorweer dashboard voor Nederland, aangedreven door het open-source KNMI Harmonie-AROME weermodel. Volledig schaalbaar voor 1280x720/1280x800 displays met automatisch schakelend Licht/Donker thema." />
-  <meta name="theme-color" content="#f0f7ff" />
+  <meta name="theme-color" content="#f5f8fc" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛅</text></svg>" />
 
   <!-- Google Fonts: Outfit, Plus Jakarta Sans & JetBrains Mono -->
@@ -22,72 +22,90 @@
       --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-xl: 26px;
+      /* Material 3 Expressive Shape Radii */
+      --radius-xs: 6px;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+      --radius-xl: 28px;
       --radius-pill: 9999px;
 
-      --transition-spring: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      /* Material 3 Expressive Motion Curves */
+      --transition-spring: all 0.28s cubic-bezier(0.2, 0.0, 0, 1.0);
+      --transition-bounce: all 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
       --transition-smooth: all 0.2s ease;
     }
 
-    /* ☀️ LIGHT THEME (STANDAARD / VOORKEUR) */
+    /* ☀️ MATERIAL YOU 3 EXPRESSIVE - LIGHT THEME (Fresh, Bright, Airy & High Clarity) */
     html[data-theme="light"] {
-      --bg-base: #f1f6fc;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --text-faint: #64748b;
+      --bg-base: #f5f8fc;
+      --text-main: #0c1829;
+      --text-muted: #4b586d;
+      --text-faint: #6e7c91;
 
-      /* Sky Gradients (Day Sunny Light) */
+      /* M3 Tonal Surface Containers */
+      --m3-surface: #ffffff;
+      --m3-surface-dim: #e4ebf5;
+      --m3-surface-bright: #ffffff;
+      --m3-surface-container-lowest: #ffffff;
+      --m3-surface-container-low: rgba(244, 248, 254, 0.90);
+      --m3-surface-container: rgba(238, 243, 251, 0.92);
+      --m3-surface-container-high: rgba(230, 237, 248, 0.96);
+      --m3-surface-container-highest: #d9e4f2;
+
+      /* M3 Accent Primaries */
+      --sky-accent: #0284c7;
+      --sky-accent-hover: #0369a1;
+      --sky-glow: rgba(2, 132, 199, 0.18);
+      --primary-container: #d9ecff;
+      --on-primary-container: #001d36;
+
+      /* M3 Atmospheric Sky Gradients */
       --sky-grad-1: #dbeafe;
       --sky-grad-2: #bfdbfe;
       --sky-grad-3: #fed7aa;
-      --sky-accent: #0284c7;
-      --sky-glow: rgba(2, 132, 199, 0.18);
 
-      /* Frosted Glass Acrylic (White Translucent) */
-      --glass-bg: rgba(255, 255, 255, 0.82);
-      --glass-bg-subtle: rgba(241, 245, 249, 0.85);
-      --glass-bg-elevated: rgba(255, 255, 255, 0.94);
-      --glass-border: rgba(203, 213, 225, 0.8);
-      --glass-border-light: rgba(255, 255, 255, 1);
-      --glass-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+      /* Frosted Acrylic Glass */
+      --glass-bg: rgba(255, 255, 255, 0.84);
+      --glass-bg-subtle: rgba(243, 247, 253, 0.88);
+      --glass-bg-elevated: rgba(255, 255, 255, 0.96);
+      --glass-border: rgba(194, 211, 233, 0.65);
+      --glass-border-light: rgba(255, 255, 255, 0.95);
+      --glass-shadow: 0 10px 30px -4px rgba(12, 24, 41, 0.06), 0 2px 8px -2px rgba(12, 24, 41, 0.03);
 
-      /* Semantic Verdict Colors (High-Contrast Clean Light) */
+      /* Semantic Verdict Tokens (Clean, High Contrast) */
       --verdict-ride-bg: #ecfdf5;
       --verdict-ride-border: #10b981;
-      --verdict-ride-text: #065f46;
-      --verdict-ride-glow: rgba(16, 185, 129, 0.2);
+      --verdict-ride-text: #047857;
+      --verdict-ride-glow: rgba(16, 185, 129, 0.18);
 
       --verdict-warn-bg: #fffbeb;
       --verdict-warn-border: #f59e0b;
-      --verdict-warn-text: #92400e;
-      --verdict-warn-glow: rgba(245, 158, 11, 0.2);
+      --verdict-warn-text: #b45309;
+      --verdict-warn-glow: rgba(245, 158, 11, 0.18);
 
       --verdict-die-bg: #fef2f2;
       --verdict-die-border: #ef4444;
-      --verdict-die-text: #991b1b;
-      --verdict-die-glow: rgba(239, 68, 68, 0.2);
+      --verdict-die-text: #b91c1c;
+      --verdict-die-glow: rgba(239, 68, 68, 0.18);
 
-      /* Progress Bar Background */
-      --bar-track: rgba(148, 163, 184, 0.28);
+      --bar-track: rgba(148, 163, 184, 0.25);
     }
 
-    /* Light Weather States */
+    /* Light Weather States (Dynamic Atmospheric Mesh Adaptation) */
     html[data-theme="light"][data-weather-state="sunny"] {
       --sky-grad-1: #e0f2fe;
       --sky-grad-2: #bae6fd;
       --sky-grad-3: #fef08a;
       --sky-accent: #0369a1;
-      --sky-glow: rgba(3, 105, 161, 0.15);
+      --sky-glow: rgba(3, 105, 161, 0.16);
     }
     html[data-theme="light"][data-weather-state="cloudy"] {
       --sky-grad-1: #e2e8f0;
       --sky-grad-2: #cbd5e1;
       --sky-grad-3: #94a3b8;
       --sky-accent: #1e40af;
-      --sky-glow: rgba(30, 64, 175, 0.15);
+      --sky-glow: rgba(30, 64, 175, 0.16);
     }
     html[data-theme="light"][data-weather-state="rain"] {
       --sky-grad-1: #dbeafe;
@@ -101,45 +119,93 @@
       --sky-grad-2: #c7d2fe;
       --sky-grad-3: #a5b4fc;
       --sky-accent: #4338ca;
-      --sky-glow: rgba(67, 56, 202, 0.2);
+      --sky-glow: rgba(67, 56, 202, 0.22);
     }
 
-    /* 🌙 DARK THEME (OPTIONEEL / NACHT) */
+    /* 🌙 MATERIAL YOU 3 EXPRESSIVE - DARK THEME (Deep Midnight, High Contrast & Luminous) */
     html[data-theme="dark"] {
-      --bg-base: #070d18;
-      --text-main: #f8fafc;
+      --bg-base: #09101d;
+      --text-main: #f1f5f9;
       --text-muted: #94a3b8;
       --text-faint: #64748b;
 
+      /* M3 Tonal Surface Containers */
+      --m3-surface: #0f1828;
+      --m3-surface-dim: #09101d;
+      --m3-surface-bright: #1c273c;
+      --m3-surface-container-lowest: #050a12;
+      --m3-surface-container-low: rgba(17, 26, 42, 0.82);
+      --m3-surface-container: rgba(23, 35, 57, 0.85);
+      --m3-surface-container-high: rgba(30, 45, 72, 0.92);
+      --m3-surface-container-highest: #263857;
+
+      /* M3 Accent Primaries */
+      --sky-accent: #38bdf8;
+      --sky-accent-hover: #7dd3fc;
+      --sky-glow: rgba(56, 189, 248, 0.25);
+      --primary-container: #004c6f;
+      --on-primary-container: #c6e7ff;
+
+      /* Atmospheric Gradients */
       --sky-grad-1: #0b152d;
       --sky-grad-2: #162f68;
       --sky-grad-3: #1e4bb5;
-      --sky-accent: #38bdf8;
-      --sky-glow: rgba(56, 189, 248, 0.22);
 
-      --glass-bg: rgba(16, 24, 43, 0.72);
-      --glass-bg-subtle: rgba(22, 33, 58, 0.6);
-      --glass-bg-elevated: rgba(26, 38, 66, 0.86);
+      /* Frosted Acrylic Glass */
+      --glass-bg: rgba(17, 26, 43, 0.76);
+      --glass-bg-subtle: rgba(23, 35, 58, 0.65);
+      --glass-bg-elevated: rgba(28, 43, 70, 0.88);
       --glass-border: rgba(255, 255, 255, 0.12);
       --glass-border-light: rgba(255, 255, 255, 0.22);
-      --glass-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.45);
+      --glass-shadow: 0 14px 40px -6px rgba(0, 0, 0, 0.55);
 
-      --verdict-ride-bg: rgba(16, 185, 129, 0.16);
-      --verdict-ride-border: rgba(16, 185, 129, 0.55);
+      /* Semantic Verdict Tokens (Luminous Tonal Accents) */
+      --verdict-ride-bg: rgba(16, 185, 129, 0.15);
+      --verdict-ride-border: rgba(16, 185, 129, 0.65);
       --verdict-ride-text: #34d399;
-      --verdict-ride-glow: rgba(16, 185, 129, 0.35);
+      --verdict-ride-glow: rgba(16, 185, 129, 0.32);
 
-      --verdict-warn-bg: rgba(245, 158, 11, 0.16);
-      --verdict-warn-border: rgba(245, 158, 11, 0.55);
+      --verdict-warn-bg: rgba(245, 158, 11, 0.15);
+      --verdict-warn-border: rgba(245, 158, 11, 0.65);
       --verdict-warn-text: #fbbf24;
-      --verdict-warn-glow: rgba(245, 158, 11, 0.35);
+      --verdict-warn-glow: rgba(245, 158, 11, 0.32);
 
-      --verdict-die-bg: rgba(239, 68, 68, 0.16);
-      --verdict-die-border: rgba(239, 68, 68, 0.6);
+      --verdict-die-bg: rgba(239, 68, 68, 0.15);
+      --verdict-die-border: rgba(239, 68, 68, 0.65);
       --verdict-die-text: #f87171;
-      --verdict-die-glow: rgba(239, 68, 68, 0.4);
+      --verdict-die-glow: rgba(239, 68, 68, 0.38);
 
       --bar-track: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Dark Weather States */
+    html[data-theme="dark"][data-weather-state="sunny"] {
+      --sky-grad-1: #0f1c3a;
+      --sky-grad-2: #1e3a73;
+      --sky-grad-3: #2563eb;
+      --sky-accent: #60a5fa;
+      --sky-glow: rgba(96, 165, 250, 0.22);
+    }
+    html[data-theme="dark"][data-weather-state="cloudy"] {
+      --sky-grad-1: #0f172a;
+      --sky-grad-2: #1e293b;
+      --sky-grad-3: #334155;
+      --sky-accent: #94a3b8;
+      --sky-glow: rgba(148, 163, 184, 0.18);
+    }
+    html[data-theme="dark"][data-weather-state="rain"] {
+      --sky-grad-1: #0b152d;
+      --sky-grad-2: #13274f;
+      --sky-grad-3: #1d4ed8;
+      --sky-accent: #38bdf8;
+      --sky-glow: rgba(56, 189, 248, 0.22);
+    }
+    html[data-theme="dark"][data-weather-state="storm"] {
+      --sky-grad-1: #111029;
+      --sky-grad-2: #1e1b4b;
+      --sky-grad-3: #4338ca;
+      --sky-accent: #818cf8;
+      --sky-glow: rgba(129, 140, 248, 0.25);
     }
 
     * {
@@ -767,6 +833,62 @@
       font-size: 0.84rem;
       line-height: 1.4;
       color: var(--text-muted);
+    }
+
+    /* Dynamic Semantic Verdict States (Material You 3 Expressive) */
+    .master-verdict-card,
+    .simple-combined-card {
+      transition: background 0.4s var(--transition-spring), border-color 0.4s var(--transition-spring), box-shadow 0.4s var(--transition-spring);
+    }
+    .master-verdict-card[data-verdict="green"],
+    .simple-combined-card[data-verdict="green"] {
+      background: linear-gradient(135deg, var(--verdict-ride-bg), var(--glass-bg-elevated));
+      border-color: var(--verdict-ride-border);
+      box-shadow: 0 16px 40px var(--verdict-ride-glow);
+    }
+    .master-verdict-card[data-verdict="yellow"],
+    .simple-combined-card[data-verdict="yellow"] {
+      background: linear-gradient(135deg, var(--verdict-warn-bg), var(--glass-bg-elevated));
+      border-color: var(--verdict-warn-border);
+      box-shadow: 0 16px 40px var(--verdict-warn-glow);
+    }
+    .master-verdict-card[data-verdict="red"],
+    .simple-combined-card[data-verdict="red"] {
+      background: linear-gradient(135deg, var(--verdict-die-bg), var(--glass-bg-elevated));
+      border-color: var(--verdict-die-border);
+      box-shadow: 0 16px 40px var(--verdict-die-glow);
+    }
+
+    .verdict-pill-badge[data-verdict="green"] {
+      background: var(--verdict-ride-bg);
+      border: 1px solid var(--verdict-ride-border);
+      color: var(--verdict-ride-text);
+    }
+    .verdict-pill-badge[data-verdict="yellow"] {
+      background: var(--verdict-warn-bg);
+      border: 1px solid var(--verdict-warn-border);
+      color: var(--verdict-warn-text);
+    }
+    .verdict-pill-badge[data-verdict="red"] {
+      background: var(--verdict-die-bg);
+      border: 1px solid var(--verdict-die-border);
+      color: var(--verdict-die-text);
+    }
+
+    .verdict-score-pill[data-verdict="green"] {
+      background: var(--verdict-ride-bg);
+      border: 1px solid var(--verdict-ride-border);
+      color: var(--verdict-ride-text);
+    }
+    .verdict-score-pill[data-verdict="yellow"] {
+      background: var(--verdict-warn-bg);
+      border: 1px solid var(--verdict-warn-border);
+      color: var(--verdict-warn-text);
+    }
+    .verdict-score-pill[data-verdict="red"] {
+      background: var(--verdict-die-bg);
+      border: 1px solid var(--verdict-die-border);
+      color: var(--verdict-die-text);
     }
 
     /* Commute Slots Side-by-Side */
@@ -1488,7 +1610,7 @@
       gap: 5px;
     }
     .city-chip {
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: var(--radius-pill);
       background: var(--glass-bg-subtle);
       border: 1px solid var(--glass-border);
@@ -1496,18 +1618,24 @@
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      transition: var(--transition-smooth);
+      transition: var(--transition-spring);
     }
     .city-chip:hover {
       background: var(--sky-accent);
+      border-color: var(--sky-accent);
       color: #fff;
+      transform: translateY(-1px);
     }
-    .location-city-chip.is-current {
+    .city-chip:active {
+      transform: scale(0.96);
+    }
+    .location-city-chip.is-current,
+    .city-chip.is-current {
       background: var(--sky-accent);
       color: #fff;
       border-color: var(--sky-accent);
       font-weight: 800;
-      box-shadow: 0 2px 8px var(--sky-glow);
+      box-shadow: 0 3px 12px var(--sky-glow);
     }
 
     .location-modal-card {
@@ -1533,12 +1661,15 @@
       font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
-      transition: var(--transition-smooth);
+      transition: var(--transition-spring);
     }
     .location-gps-bar:hover {
       background: var(--sky-glow);
       border-style: solid;
       transform: translateY(-1px);
+    }
+    .location-gps-bar:active {
+      transform: scale(0.97);
     }
 
     .settings-section-title {
@@ -1733,60 +1864,88 @@
     }
 
     /* ==========================================================================
-       SIMPLE MODE: 1 SCHERMVULLEND GECOMBINEERD WIDGET
-       Combineert Weer & Motoradvies
+       SIMPLE MODE: COMPACTE PHONE OVERVIEW WIDGET (GEEN SCROLLEN, GEEN NAVBAR)
+       Geoptimaliseerd conform mobiele overzichtswidget / Material You 3
        ========================================================================== */
+    body.is-simple-mode {
+      overflow: hidden !important;
+      height: 100vh !important;
+    }
+
+    body.is-simple-mode .top-navbar {
+      display: none !important;
+    }
+
+    body.is-simple-mode .app-footer {
+      display: none !important;
+    }
+
     body.is-simple-mode .dashboard-grid {
       display: none !important;
+    }
+
+    body.is-simple-mode .dashboard-wrapper {
+      min-height: 100vh !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      padding: 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+      zoom: 1 !important;
     }
 
     .simple-mode-container {
       display: none;
       width: 100%;
-      flex: 1;
-      min-height: calc(100vh - 120px);
+      height: 100%;
+      max-height: 100%;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
       box-sizing: border-box;
-      margin: 4px 0 10px;
     }
 
     body.is-simple-mode .simple-mode-container {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      animation: fadeInSimple 0.25s ease-out;
+      animation: fadeInSimple 0.28s var(--transition-spring);
     }
 
     @keyframes fadeInSimple {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: scale(0.97) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
+    /* Compact Phone Widget Container */
     .simple-combined-card {
       width: 100%;
-      flex: 1;
-      min-height: calc(100vh - 140px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: clamp(20px, 3vw, 36px) clamp(22px, 3.5vw, 42px);
-      border-radius: var(--radius-xl);
-      box-sizing: border-box;
-      position: relative;
-      overflow: hidden;
-      background: var(--glass-bg);
+      max-width: 680px;
+      background: var(--glass-bg-elevated);
       backdrop-filter: blur(28px) saturate(180%);
       -webkit-backdrop-filter: blur(28px) saturate(180%);
       border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
       box-shadow: var(--glass-shadow);
-      transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-spring);
     }
 
+    /* Widget Header */
     .simple-header-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      padding-bottom: 16px;
+      gap: 10px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--glass-border);
       width: 100%;
     }
@@ -1794,25 +1953,49 @@
     .simple-location-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 9px;
+      cursor: pointer;
+      border-radius: var(--radius-md);
+      padding: 3px 6px;
+      margin: -3px -6px;
+      transition: var(--transition-spring);
+    }
+    .simple-location-group:hover {
+      background: var(--sky-glow);
+    }
+    .simple-location-group:active {
+      transform: scale(0.97);
     }
 
     .simple-location-pin {
-      width: 40px;
-      height: 40px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      background: var(--glass-bg-elevated);
+      background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--sky-accent);
       flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .simple-loc-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .simple-city-wrap {
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .simple-city-name {
       font-family: var(--font-display);
-      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+      font-size: 1.35rem;
       font-weight: 900;
       color: var(--text-main);
       margin: 0;
@@ -1820,80 +2003,136 @@
       letter-spacing: -0.02em;
     }
 
+    .simple-chevron {
+      color: var(--text-muted);
+      opacity: 0.7;
+      transition: transform 0.2s ease;
+    }
+    .simple-location-group:hover .simple-chevron {
+      opacity: 1;
+      color: var(--sky-accent);
+      transform: translateY(1px);
+    }
+
     .simple-date-str {
-      font-size: clamp(0.82rem, 1.3vw, 1rem);
+      font-size: 0.76rem;
       color: var(--text-muted);
       font-weight: 600;
-      margin-top: 3px;
+      margin-top: 1px;
     }
 
     .simple-header-badges {
       display: flex;
       align-items: center;
-      gap: 10px;
-    }
-
-    .simple-category-label {
-      font-size: clamp(0.75rem, 1.1vw, 0.88rem);
-      font-weight: 700;
-      color: var(--text-muted);
-      background: var(--glass-bg-subtle);
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--glass-border);
+      gap: 6px;
+      flex-shrink: 0;
     }
 
     .simple-time-badge {
       font-family: var(--font-mono);
-      font-size: clamp(0.8rem, 1.2vw, 0.92rem);
-      font-weight: 800;
-      color: var(--text-main);
-      background: var(--glass-bg-elevated);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--glass-bg-subtle);
       border: 1px solid var(--glass-border);
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: var(--radius-pill);
-      letter-spacing: 0.05em;
     }
 
+    /* Switch Button: Grote normale pagina terugzetten */
+    .simple-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 13px;
+      border-radius: var(--radius-pill);
+      background: var(--sky-accent);
+      color: #ffffff;
+      border: 1px solid var(--sky-accent);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-spring);
+      box-shadow: 0 2px 8px var(--sky-glow);
+      white-space: nowrap;
+    }
+    .simple-switch-btn:hover {
+      background: var(--sky-accent-hover, #0369a1);
+      border-color: var(--sky-accent-hover, #0369a1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px var(--sky-glow);
+    }
+    .simple-switch-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Quick Theme Switcher in Widget Header */
+    .simple-theme-btn {
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border-radius: 50%;
+      background: var(--glass-bg-subtle);
+      border: 1px solid var(--glass-border);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 13px;
+      transition: var(--transition-spring);
+    }
+    .simple-theme-btn:hover {
+      background: var(--glass-bg-elevated);
+      border-color: var(--sky-accent);
+      transform: translateY(-1px);
+    }
+    .simple-theme-btn:active {
+      transform: scale(0.92);
+    }
+
+    /* Main Grid (Sensibly Scaled & Proportioned) */
     .simple-main-grid {
       display: grid;
-      grid-template-columns: 1fr auto 1.35fr;
-      gap: clamp(18px, 3.5vw, 44px);
+      grid-template-columns: 235px auto 1fr;
+      gap: 16px;
       align-items: center;
-      flex: 1;
-      padding: clamp(16px, 2.8vw, 32px) 0;
       width: 100%;
+      min-width: 0;
     }
 
     .simple-divider {
       width: 1px;
-      align-self: stretch;
+      height: 100%;
+      min-height: 140px;
       background: linear-gradient(180deg, transparent, var(--glass-border), transparent);
     }
 
-    /* Left: Current Weather Section */
+    /* Left: Current Weather */
     .simple-weather-section {
       display: flex;
       flex-direction: column;
-      gap: clamp(10px, 1.6vw, 18px);
+      gap: 7px;
       min-width: 0;
     }
 
     .simple-temp-row {
       display: flex;
       align-items: center;
-      gap: clamp(12px, 2.5vw, 24px);
+      justify-content: space-between;
+      gap: 6px;
     }
 
     .simple-temp-wrap {
       display: flex;
       align-items: flex-start;
-      line-height: 0.95;
+      line-height: 0.92;
     }
 
     .simple-temp-val {
       font-family: var(--font-display);
-      font-size: clamp(4rem, 8vw, 6.2rem);
+      font-size: 2.8rem;
       font-weight: 900;
       color: var(--text-main);
       letter-spacing: -0.04em;
@@ -1901,22 +2140,22 @@
 
     .simple-temp-unit {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--sky-accent);
-      margin-top: 4px;
-      margin-left: 2px;
+      margin-top: 1px;
+      margin-left: 1px;
     }
 
     .simple-icon-wrap {
-      width: clamp(72px, 9vw, 105px);
-      height: clamp(72px, 9vw, 105px);
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.1));
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
+      flex-shrink: 0;
     }
-
     .simple-icon-wrap svg {
       width: 100%;
       height: 100%;
@@ -1924,27 +2163,30 @@
 
     .simple-condition-text {
       font-family: var(--font-display);
-      font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+      font-size: 1.02rem;
       font-weight: 800;
       color: var(--text-main);
-      line-height: 1.2;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .simple-stats-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 4px;
     }
 
     .simple-stat-pill {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 6px 14px;
+      gap: 3px;
+      padding: 3px 8px;
       background: var(--glass-bg-subtle);
       border: 1px solid var(--glass-border);
       border-radius: var(--radius-pill);
-      font-size: clamp(0.78rem, 1.1vw, 0.9rem);
+      font-size: 0.72rem;
     }
 
     .simple-stat-lbl {
@@ -1961,86 +2203,100 @@
     .simple-wind-bar {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+      gap: 6px;
+      font-size: 0.74rem;
       font-weight: 700;
       color: var(--text-muted);
-      padding: 7px 14px;
+      padding: 4px 10px;
       border-radius: var(--radius-sm);
       background: var(--glass-bg-subtle);
       border: 1px solid var(--glass-border);
       width: fit-content;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* Right: Verdict & Advice Section */
+    /* Right: Verdict & Commute Section */
     .simple-verdict-section {
       display: flex;
       flex-direction: column;
-      gap: clamp(10px, 1.8vw, 20px);
+      gap: 7px;
       min-width: 0;
     }
 
     .simple-verdict-top-tags {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
     .simple-verdict-headline {
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+      font-size: 1.15rem;
       font-weight: 800;
       color: var(--text-main);
-      line-height: 1.25;
+      line-height: 1.22;
       margin: 0;
       letter-spacing: -0.015em;
     }
 
     .simple-verdict-explanation {
-      font-size: clamp(0.92rem, 1.4vw, 1.12rem);
-      line-height: 1.6;
+      font-size: 0.8rem;
+      line-height: 1.38;
       color: var(--text-muted);
       margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .simple-commute-preview {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 4px;
+      gap: 6px;
+      margin-top: 2px;
     }
 
     .simple-commute-chip {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
+      gap: 8px;
+      padding: 6px 9px;
       background: var(--glass-bg-subtle);
       border: 1px solid var(--glass-border);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-sm);
       transition: var(--transition-smooth);
+      min-width: 0;
     }
 
     .simple-commute-icon {
-      font-size: 1.4rem;
+      font-size: 1.15rem;
       line-height: 1;
+      flex-shrink: 0;
     }
 
     .simple-commute-info {
       display: flex;
       flex-direction: column;
       min-width: 0;
+      overflow: hidden;
     }
 
     .simple-commute-name {
-      font-size: 0.78rem;
+      font-size: 0.68rem;
       font-weight: 700;
       color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .simple-commute-status {
-      font-size: 0.86rem;
+      font-size: 0.76rem;
       font-weight: 800;
       color: var(--text-main);
       white-space: nowrap;
@@ -2048,34 +2304,60 @@
       text-overflow: ellipsis;
     }
 
-    /* Responsive Simple Mode */
-    @media (max-width: 900px) {
-      .simple-main-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .simple-divider {
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+    /* Responsive Adaptation for Phones */
+    @media (max-width: 680px) {
+      body.is-simple-mode .dashboard-wrapper {
+        padding: 8px !important;
       }
       .simple-combined-card {
-        min-height: auto;
+        max-width: 440px;
+        padding: 14px 16px;
+        gap: 10px;
+        border-radius: var(--radius-lg);
+      }
+      .simple-main-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .simple-divider {
+        display: none;
+      }
+      .simple-header-row {
+        padding-bottom: 8px;
+      }
+      .simple-city-name {
+        font-size: 1.2rem;
+      }
+      .simple-temp-val {
+        font-size: 2.3rem;
+      }
+      .simple-icon-wrap {
+        width: 42px;
+        height: 42px;
+      }
+      .simple-switch-text {
+        display: none;
+      }
+      .simple-switch-btn {
+        padding: 5px 9px;
       }
       .simple-commute-preview {
         grid-template-columns: 1fr;
+        gap: 5px;
       }
     }
 
-    @media (max-width: 600px) {
-      .simple-header-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    @media (max-height: 620px) {
+      .simple-combined-card {
+        padding: 10px 14px;
+        gap: 6px;
       }
-      .simple-header-badges {
-        width: 100%;
-        justify-content: space-between;
+      .simple-temp-val {
+        font-size: 2.1rem;
+      }
+      .simple-icon-wrap {
+        width: 36px;
+        height: 36px;
       }
     }
   </style>
@@ -2564,24 +2846,33 @@
     <section class="simple-mode-container" id="simple-mode-container" aria-label="Eenvoudige Weergave">
       <div class="glass-card simple-combined-card" id="simple-combined-card">
         
-        <!-- Header: Locatie, Live Tijd & Advies Label -->
+        <!-- Header: Locatie, Live Tijd & Wisselknop naar Volledig Dashboard -->
         <div class="simple-header-row">
-          <div class="simple-location-group">
+          <div class="simple-location-group" id="simple-loc-trigger" role="button" tabindex="0" title="Locatie wijzigen">
             <div class="simple-location-pin">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </div>
             <div class="simple-loc-text">
-              <h1 class="simple-city-name" id="simple-city-name">Utrecht</h1>
+              <div class="simple-city-wrap">
+                <h1 class="simple-city-name" id="simple-city-name">Utrecht</h1>
+                <svg class="simple-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </div>
               <div class="simple-date-str" id="simple-date-str">Vandaag, live update</div>
             </div>
           </div>
 
           <div class="simple-header-badges">
-            <div class="simple-category-label">Woon-werk Motoradvies</div>
+            <button class="simple-theme-btn" id="simple-theme-btn" title="Thema wisselen (Licht / Auto / Donker)" aria-label="Thema wisselen">☀️</button>
             <div class="simple-time-badge" id="simple-update-time">--:--</div>
+            <button class="simple-switch-btn" id="simple-exit-btn" title="Schakel naar volledig dashboard" aria-label="Volledig dashboard bekijken">
+              <span>📊</span>
+              <span class="simple-switch-text">Volledig Dashboard</span>
+            </button>
           </div>
         </div>
 
@@ -2723,18 +3014,8 @@
       <!-- Quick Preset City Chips -->
       <div>
         <div class="chips-label">Populaire Plaatsen in Nederland</div>
-        <div class="city-chips-wrapper">
-          <button class="city-chip location-city-chip" data-lat="52.0908" data-lon="5.1222" data-name="Utrecht">Utrecht</button>
-          <button class="city-chip location-city-chip" data-lat="52.3676" data-lon="4.9041" data-name="Amsterdam">Amsterdam</button>
-          <button class="city-chip location-city-chip" data-lat="51.9244" data-lon="4.4777" data-name="Rotterdam">Rotterdam</button>
-          <button class="city-chip location-city-chip" data-lat="52.0705" data-lon="4.3007" data-name="Den Haag">Den Haag</button>
-          <button class="city-chip location-city-chip" data-lat="51.4416" data-lon="5.4697" data-name="Eindhoven">Eindhoven</button>
-          <button class="city-chip location-city-chip" data-lat="53.2194" data-lon="6.5665" data-name="Groningen">Groningen</button>
-          <button class="city-chip location-city-chip" data-lat="51.9851" data-lon="5.8987" data-name="Arnhem">Arnhem</button>
-          <button class="city-chip location-city-chip" data-lat="52.5168" data-lon="6.0830" data-name="Zwolle">Zwolle</button>
-          <button class="city-chip location-city-chip" data-lat="50.8514" data-lon="5.6910" data-name="Maastricht">Maastricht</button>
-          <button class="city-chip location-city-chip" data-lat="51.5000" data-lon="3.6136" data-name="Middelburg">Middelburg</button>
-          <button class="city-chip location-city-chip" data-lat="53.0543" data-lon="4.7975" data-name="Texel">Texel</button>
+        <div class="city-chips-wrapper" id="preset-cities-container">
+          <!-- Dynamisch gegenereerd via PRESET_CITIES -->
         </div>
       </div>
     </div>
@@ -2943,12 +3224,28 @@
         }
       }
 
+      // Update Simple Mode Quick Theme Button
+      const simpleThemeBtn = document.getElementById('simple-theme-btn');
+      if (simpleThemeBtn) {
+        if (themeMode === 'light') {
+          simpleThemeBtn.textContent = '☀️';
+          simpleThemeBtn.setAttribute('title', 'Huidig: Licht. Klik voor Auto');
+        } else if (themeMode === 'auto') {
+          simpleThemeBtn.textContent = '🔄';
+          simpleThemeBtn.setAttribute('title', 'Huidig: Auto (Dag/Nacht). Klik voor Donker');
+        } else {
+          simpleThemeBtn.textContent = '🌙';
+          simpleThemeBtn.setAttribute('title', 'Huidig: Donker. Klik voor Licht');
+        }
+      }
+
       // Update meta theme-color for browser tab
       const metaTheme = document.querySelector('meta[name="theme-color"]');
       if (metaTheme) {
-        metaTheme.setAttribute('content', effectiveTheme === 'light' ? '#f1f6fc' : '#070d18');
+        metaTheme.setAttribute('content', effectiveTheme === 'light' ? '#f5f8fc' : '#09101d');
       }
 
+      updateThemeButtonsUI();
       saveState();
       if (showFeedback) {
         showToast(themeMode === 'light' ? 'Thema: Licht ☀️' : themeMode === 'auto' ? 'Thema: Automatisch (Dag/Nacht) 🔄' : 'Thema: Donker 🌙');
@@ -3089,33 +3386,211 @@
       return '10+ Bft';
     }
 
-    // Fetch Weather Data from KNMI Harmonie model
-    async function fetchWeatherData(lat, lon) {
-      showToast("KNMI Harmonie model data ophalen...");
+    // Shared Formatters (DRY - Deduplicated)
+    function formatDisplayDate(date = new Date()) {
+      const options = { weekday: 'long', day: 'numeric', month: 'long' };
+      const str = date.toLocaleDateString('nl-NL', options);
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function formatDisplayTime(date = new Date()) {
+      return date.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function formatCommuteSlotStatus(slotData, slotScore) {
+      if (!slotData || !slotScore) return '--';
+      const rainStr = slotData.totalPrecip > 0.05 
+        ? `${slotData.totalPrecip} mm` 
+        : (slotData.maxPrecipProb > 50 ? `0.0 mm (${slotData.maxPrecipProb}%)` : 'Droog (0 mm)');
+      return `${slotData.avgTemp}°C • ${rainStr} • ${slotScore.badgeText}`;
+    }
+
+    // Preset Cities Source of Truth (Single Source, No Repetition)
+    const PRESET_CITIES = [
+      { name: 'Utrecht', lat: 52.0908, lon: 5.1222 },
+      { name: 'Amsterdam', lat: 52.3676, lon: 4.9041 },
+      { name: 'Rotterdam', lat: 51.9244, lon: 4.4777 },
+      { name: 'Den Haag', lat: 52.0705, lon: 4.3007 },
+      { name: 'Eindhoven', lat: 51.4416, lon: 5.4697 },
+      { name: 'Groningen', lat: 53.2194, lon: 6.5665 },
+      { name: 'Arnhem', lat: 51.9851, lon: 5.8987 },
+      { name: 'Zwolle', lat: 52.5168, lon: 6.0830 },
+      { name: 'Maastricht', lat: 50.8514, lon: 5.6910 },
+      { name: 'Middelburg', lat: 51.5000, lon: 3.6136 },
+      { name: 'Texel', lat: 53.0543, lon: 4.7975 }
+    ];
+
+    function renderPresetCityChips() {
+      const container = document.getElementById('preset-cities-container');
+      if (!container) return;
+      const currentName = (AppState.location.name || '').toLowerCase();
+      container.innerHTML = PRESET_CITIES.map(city => {
+        const isCurrent = city.name.toLowerCase() === currentName;
+        return `<button class="city-chip location-city-chip ${isCurrent ? 'is-current' : ''}" data-lat="${city.lat}" data-lon="${city.lon}" data-name="${city.name}">${city.name}</button>`;
+      }).join('');
+    }
+
+    function updateActiveCityChip() {
+      const currentName = (AppState.location.name || '').toLowerCase();
+      document.querySelectorAll('.location-city-chip').forEach(chip => {
+        const chipName = (chip.dataset.name || '').toLowerCase();
+        if (chipName === currentName) {
+          chip.classList.add('is-current');
+        } else {
+          chip.classList.remove('is-current');
+        }
+      });
+    }
+
+    // Unified Location Change Handler (Deduplicates Location Switch Logic)
+    function selectNewLocation(name, lat, lon, country = 'NL') {
+      AppState.location = { name, latitude: lat, longitude: lon, country };
+      saveState();
+
+      const locModal = document.getElementById('location-modal');
+      if (locModal) locModal.classList.remove('open');
+      const resultsList = document.getElementById('search-results-list');
+      if (resultsList) resultsList.classList.remove('show');
+
+      const navLoc = document.getElementById('nav-location-label');
+      if (navLoc) navLoc.textContent = `${name}, ${country}`;
+
+      updateActiveCityChip();
+      fetchWeatherData(lat, lon, false);
+      showToast(`Locatie gewijzigd naar ${name}`);
+    }
+
+    // ==========================================================================
+    // SMART WEATHER CACHE & API THROTTLING ENGINE
+    // 10-min TTL cache, zero-latency instant rendering, abort controller, and offline fallback
+    // ==========================================================================
+    const WeatherCache = {
+      TTL_MS: 10 * 60 * 1000, // 10 minutes cache TTL (aligned with model update frequencies)
+
+      getCacheKey(lat, lon) {
+        return `rideordie_weather_${Number(lat).toFixed(3)}_${Number(lon).toFixed(3)}`;
+      },
+
+      get(lat, lon) {
+        try {
+          const key = this.getCacheKey(lat, lon);
+          const raw = localStorage.getItem(key);
+          if (!raw) return null;
+          const parsed = JSON.parse(raw);
+          if (!parsed || !parsed.data || !parsed.timestamp) return null;
+          const age = Date.now() - parsed.timestamp;
+          return {
+            data: parsed.data,
+            timestamp: parsed.timestamp,
+            isFresh: age < this.TTL_MS,
+            ageMinutes: Math.floor(age / 60000)
+          };
+        } catch (e) {
+          console.warn("Fout bij lezen weer-cache:", e);
+          return null;
+        }
+      },
+
+      set(lat, lon, data) {
+        try {
+          const key = this.getCacheKey(lat, lon);
+          const entry = {
+            timestamp: Date.now(),
+            data: data
+          };
+          localStorage.setItem(key, JSON.stringify(entry));
+        } catch (e) {
+          console.warn("Fout bij opslaan in weer-cache:", e);
+        }
+      }
+    };
+
+    let currentFetchController = null;
+
+    // Fetch Weather Data from KNMI Harmonie model with intelligent cache & throttling
+    async function fetchWeatherData(lat, lon, force = false) {
       const refreshIcon = document.getElementById('refresh-icon');
+
+      // 1. Check cache first if not forced
+      const cached = WeatherCache.get(lat, lon);
+      if (!force && cached && cached.isFresh) {
+        // Instant 0ms render from cache!
+        AppState.weatherData = cached.data;
+        if (AppState.theme === 'auto') {
+          applyTheme('auto', false);
+        }
+        renderDashboard(cached.data);
+        return;
+      }
+
+      // If we have existing data in cache (even slightly older), render immediately while fetching fresh data
+      if (!force && cached && cached.data) {
+        AppState.weatherData = cached.data;
+        if (AppState.theme === 'auto') {
+          applyTheme('auto', false);
+        }
+        renderDashboard(cached.data);
+      }
+
+      // 2. Abort prior in-flight fetch if user switched locations quickly
+      if (currentFetchController) {
+        currentFetchController.abort();
+      }
+      currentFetchController = new AbortController();
+      const signal = currentFetchController.signal;
+
       if (refreshIcon) refreshIcon.classList.add('spin');
+      if (force) {
+        showToast("KNMI data forceren & vernieuwen...");
+      } else if (!cached) {
+        showToast("KNMI Harmonie model data ophalen...");
+      }
 
       const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m,surface_pressure,uv_index&hourly=temperature_2m,precipitation_probability,precipitation,weather_code,wind_speed_10m,wind_gusts_10m,visibility&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max&models=knmi_seamless&timezone=auto`;
 
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrl, { signal });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
+
+        // Update cache and app state
+        WeatherCache.set(lat, lon, data);
         AppState.weatherData = data;
 
-        // Apply theme if in auto mode
         if (AppState.theme === 'auto') {
           applyTheme('auto', false);
         }
 
         renderDashboard(data);
-        showToast("KNMI data actueel bijgewerkt!");
+        showToast(force ? "KNMI data direct vernieuwd! 🔄" : "KNMI data actueel bijgewerkt!");
       } catch (err) {
+        if (err.name === 'AbortError') {
+          // Normal abort when user switches location quickly
+          return;
+        }
         console.error("Fout bij ophalen weerdata:", err);
-        showToast("Fout bij laden van KNMI gegevens. Probeer opnieuw.");
+        if (cached && cached.data) {
+          showToast("Netwerkfout: recente opgeslagen weerdata getoond");
+        } else {
+          showToast("Fout bij laden van KNMI gegevens. Probeer opnieuw.");
+        }
       } finally {
         if (refreshIcon) refreshIcon.classList.remove('spin');
       }
+    }
+
+    // Smart Background Polling (pauses when tab is hidden, resumes when visible if stale)
+    let pollInterval = null;
+    function startWeatherPolling() {
+      if (pollInterval) clearInterval(pollInterval);
+      pollInterval = setInterval(() => {
+        if (!document.hidden) {
+          const cached = WeatherCache.get(AppState.location.latitude, AppState.location.longitude);
+          if (!cached || !cached.isFresh) {
+            fetchWeatherData(AppState.location.latitude, AppState.location.longitude, false);
+          }
+        }
+      }, 10 * 60 * 1000); // Check every 10 minutes
     }
 
     // Master Motorcycle Commute Algorithm
@@ -3173,15 +3648,22 @@
         let score = 100;
         let reasons = [];
 
-        if (slot.totalPrecip > 3.0 || slot.maxPrecipProb > 80) {
+        if (slot.totalPrecip > 3.0 || (slot.totalPrecip > 1.5 && slot.maxPrecipProb > 75)) {
           score -= 45;
-          reasons.push("Zware regen of plensbuien");
-        } else if (slot.totalPrecip > 0.8 || slot.maxPrecipProb > 50) {
+          reasons.push("Stevige regenval verwacht (>3 mm)");
+        } else if (slot.totalPrecip > 0.8 || (slot.totalPrecip > 0.3 && slot.maxPrecipProb > 60)) {
           score -= 25;
-          reasons.push("Kans op bui of nat wegdek");
-        } else if (slot.totalPrecip > 0.1 || slot.maxPrecipProb > 25) {
-          score -= 10;
-          reasons.push("Lichte miezer mogelijk");
+          reasons.push(`Kans op bui (${slot.totalPrecip} mm)`);
+        } else if (slot.totalPrecip > 0.2) {
+          score -= 15;
+          reasons.push(`Lichte bui of motregen (${slot.totalPrecip} mm)`);
+        } else if (slot.totalPrecip > 0.05) {
+          score -= 5;
+          reasons.push("Mogelijk enkel spatje neerslag (<0.2 mm)");
+        } else if (slot.maxPrecipProb > 65) {
+          // Hoofdzakelijk droog 0.0 mm, lichte regionale onzekerheid
+          score -= 5;
+          reasons.push(`Overwegend droog (0 mm, buienkans in regio ${slot.maxPrecipProb}%)`);
         }
 
         if (slot.maxGusts > 70) {
@@ -3302,10 +3784,8 @@
       document.getElementById('hero-city-name').textContent = AppState.location.name;
 
       const now = new Date();
-      const options = { weekday: 'long', day: 'numeric', month: 'long' };
-      const dateStr = now.toLocaleDateString('nl-NL', options);
-      document.getElementById('hero-date-str').textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
-      document.getElementById('hero-update-time').textContent = now.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('hero-date-str').textContent = formatDisplayDate(now);
+      document.getElementById('hero-update-time').textContent = formatDisplayTime(now);
 
       const code = current.weather_code || 0;
       const wmoInfo = WMO_DICT[code] || { text: "Helder", icon: "sun", state: "sunny" };
@@ -3332,7 +3812,21 @@
       else if (gustKmh > 45) gustStatus = "Matig/vlagerig";
       document.getElementById('spec-gust-status').textContent = gustStatus;
 
-      document.getElementById('spec-precip').textContent = `${(current.precipitation || 0).toFixed(1)} mm`;
+      const currentPrecip = current.precipitation || 0;
+      document.getElementById('spec-precip').textContent = `${currentPrecip.toFixed(1)} mm`;
+      const specPrecipProb = document.getElementById('spec-precip-prob');
+      if (specPrecipProb) {
+        const curProb = (hourly && hourly.precipitation_probability && hourly.precipitation_probability.length > 0)
+          ? hourly.precipitation_probability[0]
+          : 0;
+        if (currentPrecip > 0.1) {
+          specPrecipProb.textContent = `Regen (${curProb}%)`;
+        } else if (curProb > 45) {
+          specPrecipProb.textContent = `Droog (regio ${curProb}%)`;
+        } else {
+          specPrecipProb.textContent = `Droog (0%)`;
+        }
+      }
       document.getElementById('spec-uv').textContent = (current.uv_index !== undefined && current.uv_index !== null) ? current.uv_index.toFixed(1) : '--';
       document.getElementById('spec-pressure').textContent = current.surface_pressure ? `${Math.round(current.surface_pressure)} hPa` : '1016 hPa';
 
@@ -3353,45 +3847,25 @@
       verdictScore.textContent = `Index: ${advice.minScore}/100`;
       verdictExpl.textContent = advice.dayExplanation;
 
-      if (advice.dayVerdict === 'green') {
-        verdictCard.style.background = 'linear-gradient(135deg, var(--verdict-ride-bg), var(--glass-bg-elevated))';
-        verdictCard.style.borderColor = 'var(--verdict-ride-border)';
-        verdictPill.style.background = 'var(--verdict-ride-bg)';
-        verdictPill.style.border = '1px solid var(--verdict-ride-border)';
-        verdictPill.style.color = 'var(--verdict-ride-text)';
-        verdictScore.style.background = 'var(--verdict-ride-bg)';
-        verdictScore.style.color = 'var(--verdict-ride-text)';
-        verdictScore.style.borderColor = 'var(--verdict-ride-border)';
-      } else if (advice.dayVerdict === 'yellow') {
-        verdictCard.style.background = 'linear-gradient(135deg, var(--verdict-warn-bg), var(--glass-bg-elevated))';
-        verdictCard.style.borderColor = 'var(--verdict-warn-border)';
-        verdictPill.style.background = 'var(--verdict-warn-bg)';
-        verdictPill.style.border = '1px solid var(--verdict-warn-border)';
-        verdictPill.style.color = 'var(--verdict-warn-text)';
-        verdictScore.style.background = 'var(--verdict-warn-bg)';
-        verdictScore.style.color = 'var(--verdict-warn-text)';
-        verdictScore.style.borderColor = 'var(--verdict-warn-border)';
-      } else {
-        verdictCard.style.background = 'linear-gradient(135deg, var(--verdict-die-bg), var(--glass-bg-elevated))';
-        verdictCard.style.borderColor = 'var(--verdict-die-border)';
-        verdictPill.style.background = 'var(--verdict-die-bg)';
-        verdictPill.style.border = '1px solid var(--verdict-die-border)';
-        verdictPill.style.color = 'var(--verdict-die-text)';
-        verdictScore.style.background = 'var(--verdict-die-bg)';
-        verdictScore.style.color = 'var(--verdict-die-text)';
-        verdictScore.style.borderColor = 'var(--verdict-die-border)';
-      }
+      // Pure CSS-driven verdict states (Material You 3 Expressive)
+      verdictCard.dataset.verdict = advice.dayVerdict;
+      verdictPill.dataset.verdict = advice.dayVerdict;
+      verdictScore.dataset.verdict = advice.dayVerdict;
 
       document.getElementById('morning-slot-time').textContent = `${AppState.commute.morningTime} (Heen)`;
       document.getElementById('morning-temp').textContent = `${advice.morningData.avgTemp}°C`;
-      document.getElementById('morning-rain').textContent = `${advice.morningData.totalPrecip} mm`;
+      document.getElementById('morning-rain').textContent = advice.morningData.totalPrecip > 0.05 
+        ? `${advice.morningData.totalPrecip} mm` 
+        : (advice.morningData.maxPrecipProb > 50 ? `0.0 mm (${advice.morningData.maxPrecipProb}%)` : '0.0 mm (Droog)');
       document.getElementById('morning-gusts').textContent = `${advice.morningData.maxGusts} km/u`;
       document.getElementById('morning-status-badge').textContent = advice.morningScore.badgeText;
       document.getElementById('morning-note').innerHTML = `<span>👉</span> ${advice.morningScore.reasons.length ? advice.morningScore.reasons.join(". ") : "Ideale ochtendrit! Droog asfalt en kalme wind."}`;
 
       document.getElementById('evening-slot-time').textContent = `${AppState.commute.eveningTime} (Terug)`;
       document.getElementById('evening-temp').textContent = `${advice.eveningData.avgTemp}°C`;
-      document.getElementById('evening-rain').textContent = `${advice.eveningData.totalPrecip} mm`;
+      document.getElementById('evening-rain').textContent = advice.eveningData.totalPrecip > 0.05 
+        ? `${advice.eveningData.totalPrecip} mm` 
+        : (advice.eveningData.maxPrecipProb > 50 ? `0.0 mm (${advice.eveningData.maxPrecipProb}%)` : '0.0 mm (Droog)');
       document.getElementById('evening-gusts').textContent = `${advice.eveningData.maxGusts} km/u`;
       document.getElementById('evening-status-badge').textContent = advice.eveningScore.badgeText;
       document.getElementById('evening-note').innerHTML = `<span>👉</span> ${advice.eveningScore.reasons.length ? advice.eveningScore.reasons.join(". ") : "Prettige terugreis! Asfalt is droog en goed begaanbaar."}`;
@@ -3414,12 +3888,29 @@
       document.getElementById('meter-grip-tag').textContent = gripVal === 100 ? 'Optimaal' : gripVal > 70 ? 'Vochtig' : 'Glad/Nat';
 
       const maxProb = Math.max(advice.morningData.maxPrecipProb, advice.eveningData.maxPrecipProb);
-      document.getElementById('meter-rain-val').textContent = `${maxProb}%`;
-      document.getElementById('meter-rain-mm').textContent = `${maxRain} mm`;
       const rainFill = document.getElementById('meter-rain-bar');
-      rainFill.style.width = `${Math.max(5, maxProb)}%`;
-      rainFill.style.background = maxProb > 70 ? '#ef4444' : maxProb > 30 ? '#f59e0b' : '#10b981';
-      document.getElementById('meter-rain-tag').textContent = maxProb > 70 ? 'Hoge Kans' : maxProb > 30 ? 'Kans op bui' : 'Droog';
+
+      if (maxRain > 0.2) {
+        document.getElementById('meter-rain-val').textContent = `${maxRain.toFixed(1)} mm`;
+        document.getElementById('meter-rain-mm').textContent = `Kans: ${maxProb}%`;
+        const rainPercent = Math.min(100, Math.max(12, Math.round((maxRain / 4.0) * 100)));
+        rainFill.style.width = `${rainPercent}%`;
+        rainFill.style.background = maxRain > 2.0 ? '#ef4444' : '#f59e0b';
+        document.getElementById('meter-rain-tag').textContent = maxRain > 2.0 ? 'Plensbui' : 'Bui verwacht';
+      } else if (maxRain > 0.05) {
+        document.getElementById('meter-rain-val').textContent = `< 0.2 mm`;
+        document.getElementById('meter-rain-mm').textContent = `Kans: ${maxProb}%`;
+        rainFill.style.width = `15%`;
+        rainFill.style.background = '#10b981';
+        document.getElementById('meter-rain-tag').textContent = 'Spatje?';
+      } else {
+        // 0.0 mm verwacht (Droog!)
+        document.getElementById('meter-rain-val').textContent = `0.0 mm`;
+        document.getElementById('meter-rain-mm').textContent = maxProb > 40 ? `Regio: ${maxProb}%` : `Droog`;
+        rainFill.style.width = maxProb > 50 ? '12%' : '5%';
+        rainFill.style.background = '#10b981';
+        document.getElementById('meter-rain-tag').textContent = maxProb > 50 ? 'Droog (0 mm)' : 'Droog';
+      }
 
       const tempAvg = Math.round((advice.morningData.avgTemp + advice.eveningData.avgTemp) / 2);
       document.getElementById('meter-temp-val').textContent = `${tempAvg}°C`;
@@ -3450,13 +3941,11 @@
       if (cityNameEl) cityNameEl.textContent = AppState.location.name;
 
       const now = new Date();
-      const options = { weekday: 'long', day: 'numeric', month: 'long' };
-      const dateStr = now.toLocaleDateString('nl-NL', options);
       const dateEl = document.getElementById('simple-date-str');
-      if (dateEl) dateEl.textContent = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+      if (dateEl) dateEl.textContent = formatDisplayDate(now);
 
       const timeEl = document.getElementById('simple-update-time');
-      if (timeEl) timeEl.textContent = now.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+      if (timeEl) timeEl.textContent = formatDisplayTime(now);
 
       // Weather condition
       const code = current.weather_code || 0;
@@ -3488,7 +3977,7 @@
       const windTextEl = document.getElementById('simple-wind-text');
       if (windTextEl) windTextEl.textContent = `Wind: ${windSpeed} km/u (${windDir}) • Stoten: ${windGusts} km/u`;
 
-      // Master Verdict / Advice Banner
+      // Master Verdict / Advice Banner (CSS-driven states)
       const verdictCard = document.getElementById('simple-combined-card');
       const verdictPill = document.getElementById('simple-verdict-pill');
       const verdictScore = document.getElementById('simple-verdict-score');
@@ -3500,53 +3989,24 @@
       if (verdictScore) verdictScore.textContent = `Index: ${advice.minScore}/100`;
       if (verdictExpl) verdictExpl.textContent = advice.dayExplanation;
 
-      if (verdictCard && verdictPill && verdictScore) {
-        if (advice.dayVerdict === 'green') {
-          verdictCard.style.background = 'linear-gradient(135deg, var(--verdict-ride-bg), var(--glass-bg-elevated))';
-          verdictCard.style.borderColor = 'var(--verdict-ride-border)';
-          verdictCard.style.boxShadow = '0 16px 40px rgba(16, 185, 129, 0.15)';
-          verdictPill.style.background = 'var(--verdict-ride-bg)';
-          verdictPill.style.border = '1px solid var(--verdict-ride-border)';
-          verdictPill.style.color = 'var(--verdict-ride-text)';
-          verdictScore.style.background = 'var(--verdict-ride-bg)';
-          verdictScore.style.color = 'var(--verdict-ride-text)';
-          verdictScore.style.borderColor = 'var(--verdict-ride-border)';
-        } else if (advice.dayVerdict === 'yellow') {
-          verdictCard.style.background = 'linear-gradient(135deg, var(--verdict-warn-bg), var(--glass-bg-elevated))';
-          verdictCard.style.borderColor = 'var(--verdict-warn-border)';
-          verdictCard.style.boxShadow = '0 16px 40px rgba(245, 158, 11, 0.15)';
-          verdictPill.style.background = 'var(--verdict-warn-bg)';
-          verdictPill.style.border = '1px solid var(--verdict-warn-border)';
-          verdictPill.style.color = 'var(--verdict-warn-text)';
-          verdictScore.style.background = 'var(--verdict-warn-bg)';
-          verdictScore.style.color = 'var(--verdict-warn-text)';
-          verdictScore.style.borderColor = 'var(--verdict-warn-border)';
-        } else {
-          verdictCard.style.background = 'linear-gradient(135deg, var(--verdict-die-bg), var(--glass-bg-elevated))';
-          verdictCard.style.borderColor = 'var(--verdict-die-border)';
-          verdictCard.style.boxShadow = '0 16px 40px rgba(239, 68, 68, 0.18)';
-          verdictPill.style.background = 'var(--verdict-die-bg)';
-          verdictPill.style.border = '1px solid var(--verdict-die-border)';
-          verdictPill.style.color = 'var(--verdict-die-text)';
-          verdictScore.style.background = 'var(--verdict-die-bg)';
-          verdictScore.style.color = 'var(--verdict-die-text)';
-          verdictScore.style.borderColor = 'var(--verdict-die-border)';
-        }
-      }
+      if (verdictCard) verdictCard.dataset.verdict = advice.dayVerdict;
+      if (verdictPill) verdictPill.dataset.verdict = advice.dayVerdict;
+      if (verdictScore) verdictScore.dataset.verdict = advice.dayVerdict;
 
-      // Commute highlights
+      // Commute highlights (Morning & Evening)
       const mornTimeEl = document.getElementById('simple-morning-time');
       const mornStatusEl = document.getElementById('simple-morning-status');
-      if (mornTimeEl) mornTimeEl.textContent = `(${AppState.commute.morningTime})`;
-      if (mornStatusEl && advice.morningData) {
-        mornStatusEl.textContent = `${advice.morningData.avgTemp}°C • ${advice.morningData.totalPrecip} mm • ${advice.morningScore.badgeText}`;
-      }
-
       const eveTimeEl = document.getElementById('simple-evening-time');
       const eveStatusEl = document.getElementById('simple-evening-status');
+
+      if (mornTimeEl) mornTimeEl.textContent = `(${AppState.commute.morningTime})`;
       if (eveTimeEl) eveTimeEl.textContent = `(${AppState.commute.eveningTime})`;
+
+      if (mornStatusEl && advice.morningData) {
+        mornStatusEl.textContent = formatCommuteSlotStatus(advice.morningData, advice.morningScore);
+      }
       if (eveStatusEl && advice.eveningData) {
-        eveStatusEl.textContent = `${advice.eveningData.avgTemp}°C • ${advice.eveningData.totalPrecip} mm • ${advice.eveningScore.badgeText}`;
+        eveStatusEl.textContent = formatCommuteSlotStatus(advice.eveningData, advice.eveningScore);
       }
     }
 
@@ -3584,9 +4044,26 @@
         const hourStr = `${hourNum.toString().padStart(2, '0')}:00`;
         const temp = Math.round(hourly.temperature_2m[i]);
         const rainProb = hourly.precipitation_probability[i] || 0;
+        const precip = (hourly.precipitation && hourly.precipitation[i] !== undefined) ? hourly.precipitation[i] : 0;
         const code = hourly.weather_code[i] || 0;
         const iconType = (WMO_DICT[code] || {}).icon || 'sun';
         const isNight = hourNum < 6 || hourNum > 21;
+
+        let rainDisplay = '';
+        let rainTooltip = '';
+        if (precip >= 0.2) {
+          rainDisplay = `💧${precip.toFixed(1)}m`;
+          rainTooltip = `${precip.toFixed(1)} mm regen verwacht (kans: ${rainProb}%)`;
+        } else if (precip > 0.05) {
+          rainDisplay = `💧<0.2m`;
+          rainTooltip = `Mogelijk enkel spatje (<0.2 mm, kans: ${rainProb}%)`;
+        } else if (rainProb > 45) {
+          rainDisplay = `⛅0mm`;
+          rainTooltip = `Droog (0.0 mm), buienkans in regio: ${rainProb}%`;
+        } else {
+          rainDisplay = `☀️0%`;
+          rainTooltip = `Droog (0.0 mm, regenkans: ${rainProb}%)`;
+        }
 
         const isCurrent = (i === currentIdx);
         let commuteClass = '';
@@ -3600,11 +4077,11 @@
         }
 
         html += `
-          <div class="hour-chip ${commuteClass}" title="${isCurrent ? `Huidig uur (${hourStr})` : hourStr}">
+          <div class="hour-chip ${commuteClass}" title="${isCurrent ? `Huidig uur (${hourStr})` : hourStr}: ${temp}°C • ${rainTooltip}">
             <span class="hour-time">${hourStr}</span>
             <div class="hour-icon">${getWeatherSvg(iconType, isNight)}</div>
             <span class="hour-temp">${temp}°</span>
-            <span class="hour-rain">${rainProb > 10 ? `💧${rainProb}%` : '☀️0%'}</span>
+            <span class="hour-rain">${rainDisplay}</span>
           </div>
         `;
       }
@@ -3636,8 +4113,21 @@
         const barLeft = Math.max(5, Math.min(65, ((minTemp + 5) / 35) * 100));
         const barWidth = Math.max(15, Math.min(75, ((maxTemp - minTemp) / 20) * 80));
 
+        let rainDisplay = '';
+        let rainTooltip = '';
+        if (rainSum > 0.2) {
+          rainDisplay = `🌧️ ${rainSum.toFixed(1)}m`;
+          rainTooltip = `${rainSum.toFixed(1)} mm neerslagsom (max kans: ${rainProb}%)`;
+        } else if (rainProb > 45) {
+          rainDisplay = `⛅ 0mm`;
+          rainTooltip = `Droog (0.0 mm), lokale kans in regio: ${rainProb}%`;
+        } else {
+          rainDisplay = `☀️ 0%`;
+          rainTooltip = `Droog (0.0 mm, max kans: ${rainProb}%)`;
+        }
+
         html += `
-          <div class="daily-row">
+          <div class="daily-row" title="${name}: min ${minTemp}°, max ${maxTemp}°, ${rainTooltip}">
             <span class="daily-name">${name}</span>
             <div class="daily-icon">${getWeatherSvg(iconType, false)}</div>
             <div class="daily-temp-bar-container">
@@ -3647,42 +4137,62 @@
               </div>
               <span class="daily-max">${maxTemp}°</span>
             </div>
-            <span class="daily-rain-pill">${rainSum > 0.2 ? `🌧️ ${rainSum.toFixed(1)}m` : `${rainProb}%`}</span>
+            <span class="daily-rain-pill">${rainDisplay}</span>
           </div>
         `;
       }
       container.innerHTML = html;
     }
 
-    // Geocoding Search
+    // Geocoding Search (with memory cache & debounce)
+    const geocodingCache = new Map();
     let searchTimeout = null;
+
+    function renderSearchResults(results) {
+      const resultsList = document.getElementById('search-results-list');
+      if (!resultsList) return;
+
+      if (results && results.length > 0) {
+        resultsList.innerHTML = results.map(item => `
+          <div class="search-result-item" data-lat="${item.latitude}" data-lon="${item.longitude}" data-name="${item.name}" data-country="${item.country_code || 'NL'}">
+            <span class="search-result-name">${item.name}</span>
+            <span class="search-result-province">${item.admin1 || item.country || ''}</span>
+          </div>
+        `).join('');
+        resultsList.classList.add('show');
+      } else {
+        resultsList.innerHTML = `<div style="padding:10px;font-size:0.8rem;color:var(--text-muted);text-align:center;">Geen resultaten gevonden in Nederland</div>`;
+        resultsList.classList.add('show');
+      }
+    }
+
     function handleLocationSearch(query) {
       clearTimeout(searchTimeout);
       const resultsList = document.getElementById('search-results-list');
 
-      if (!query || query.trim().length < 2) {
-        resultsList.classList.remove('show');
+      const trimmed = (query || '').trim();
+      if (trimmed.length < 2) {
+        if (resultsList) {
+          resultsList.classList.remove('show');
+          resultsList.innerHTML = '';
+        }
+        return;
+      }
+
+      const cacheKey = trimmed.toLowerCase();
+      if (geocodingCache.has(cacheKey)) {
+        renderSearchResults(geocodingCache.get(cacheKey));
         return;
       }
 
       searchTimeout = setTimeout(async () => {
         try {
-          const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=8&language=nl&format=json`);
+          const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(trimmed)}&count=8&language=nl&format=json`);
           if (!res.ok) return;
           const data = await res.json();
-
-          if (data.results && data.results.length > 0) {
-            resultsList.innerHTML = data.results.map(item => `
-              <div class="search-result-item" data-lat="${item.latitude}" data-lon="${item.longitude}" data-name="${item.name}" data-country="${item.country_code || 'NL'}">
-                <span class="search-result-name">${item.name}</span>
-                <span class="search-result-province">${item.admin1 || item.country || ''}</span>
-              </div>
-            `).join('');
-            resultsList.classList.add('show');
-          } else {
-            resultsList.innerHTML = `<div style="padding:8px;font-size:0.78rem;color:var(--text-muted);text-align:center;">Geen resultaten gevonden in Nederland</div>`;
-            resultsList.classList.add('show');
-          }
+          const results = (data && data.results) ? data.results : [];
+          geocodingCache.set(cacheKey, results);
+          renderSearchResults(results);
         } catch (err) {
           console.error("Geocoding zoekfout:", err);
         }
@@ -3702,7 +4212,7 @@
       }, 2500);
     }
 
-    // GPS Geolocation Handler
+    // GPS Geolocation Handler (Routed through selectNewLocation)
     function requestGPSLocation() {
       if (!navigator.geolocation) {
         showToast("Geolocatie wordt niet ondersteund door je browser");
@@ -3713,18 +4223,11 @@
         (position) => {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
-          AppState.location = {
-            name: 'Mijn Locatie',
-            latitude: lat,
-            longitude: lon,
-            country: 'NL'
-          };
-          saveState();
-          fetchWeatherData(lat, lon);
+          selectNewLocation('Mijn Locatie', lat, lon, 'NL');
         },
         (error) => {
           console.warn("GPS fout:", error.message);
-          showToast("Locatie toegang geweigerd. Standaard op Utrecht gezet.");
+          showToast("Locatie toegang geweigerd. Huidige locatie behouden.");
         },
         { timeout: 10000, enableHighAccuracy: true }
       );
@@ -3965,6 +4468,7 @@
 
       const openLocationModal = () => {
         if (!locModal) return;
+        renderPresetCityChips();
         locModal.classList.add('open');
         if (searchInput) {
           searchInput.value = '';
@@ -3973,17 +4477,6 @@
           resultsList.classList.remove('show');
           resultsList.innerHTML = '';
         }
-
-        // Highlight currently active city chip
-        document.querySelectorAll('.location-city-chip').forEach(chip => {
-          const chipName = (chip.dataset.name || '').toLowerCase();
-          const currentName = (AppState.location.name || '').toLowerCase();
-          if (chipName === currentName) {
-            chip.classList.add('is-current');
-          } else {
-            chip.classList.remove('is-current');
-          }
-        });
 
         setTimeout(() => {
           if (searchInput) searchInput.focus();
@@ -4018,10 +4511,35 @@
         simpleCityEl.addEventListener('click', openLocationModal);
       }
 
+      // Simple View Header Trigger: Click or Enter/Space opens Location Modal
+      const simpleLocTrigger = document.getElementById('simple-loc-trigger');
+      if (simpleLocTrigger) {
+        simpleLocTrigger.addEventListener('click', openLocationModal);
+        simpleLocTrigger.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLocationModal();
+          }
+        });
+      }
+
+      // Simple View Switch Button: Terug naar volledig dashboard
+      const simpleExitBtn = document.getElementById('simple-exit-btn');
+      if (simpleExitBtn) {
+        simpleExitBtn.addEventListener('click', () => toggleSimpleMode(false));
+      }
+
+      // Simple View Quick Theme Switcher
+      const simpleThemeBtn = document.getElementById('simple-theme-btn');
+      if (simpleThemeBtn) {
+        simpleThemeBtn.addEventListener('click', cycleTheme);
+      }
+
       if (searchInput) {
         searchInput.addEventListener('input', (e) => handleLocationSearch(e.target.value));
       }
 
+      // Delegated click handler on search results
       if (resultsList) {
         resultsList.addEventListener('click', (e) => {
           const item = e.target.closest('.search-result-item');
@@ -4030,33 +4548,24 @@
             const lon = parseFloat(item.dataset.lon);
             const name = item.dataset.name;
             const country = item.dataset.country || 'NL';
-
-            AppState.location = { name, latitude: lat, longitude: lon, country };
-            saveState();
-            closeLocationModal();
-            const navLoc = document.getElementById('nav-location-label');
-            if (navLoc) navLoc.textContent = `${name}, ${country}`;
-            fetchWeatherData(lat, lon);
-            showToast(`Locatie gewijzigd naar ${name}`);
+            selectNewLocation(name, lat, lon, country);
           }
         });
       }
 
-      document.querySelectorAll('.location-city-chip').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const lat = parseFloat(btn.dataset.lat);
-          const lon = parseFloat(btn.dataset.lon);
-          const name = btn.dataset.name;
-
-          AppState.location = { name, latitude: lat, longitude: lon, country: 'NL' };
-          saveState();
-          closeLocationModal();
-          const navLoc = document.getElementById('nav-location-label');
-          if (navLoc) navLoc.textContent = `${name}, NL`;
-          fetchWeatherData(lat, lon);
-          showToast(`Locatie gewijzigd naar ${name}`);
+      // Delegated click handler on preset city chips
+      const presetContainer = document.getElementById('preset-cities-container');
+      if (presetContainer) {
+        presetContainer.addEventListener('click', (e) => {
+          const btn = e.target.closest('.location-city-chip');
+          if (btn) {
+            const lat = parseFloat(btn.dataset.lat);
+            const lon = parseFloat(btn.dataset.lon);
+            const name = btn.dataset.name;
+            selectNewLocation(name, lat, lon, 'NL');
+          }
         });
-      });
+      }
 
       if (modalGpsBtn) {
         modalGpsBtn.addEventListener('click', () => {
@@ -4095,6 +4604,7 @@
         document.getElementById('val-min-temp').textContent = `${AppState.commute.minTemp}°C`;
         document.getElementById('val-max-gusts').textContent = `${AppState.commute.maxGusts} km/u`;
 
+        updateThemeButtonsUI();
         settingsModal.classList.add('open');
       };
 
@@ -4155,9 +4665,23 @@
       }
     }
 
-    // Refresh, GPS, Theme, Simple Mode & Fullscreen buttons
+    // Synchronize Theme Buttons in Settings Modal
+    function updateThemeButtonsUI() {
+      ['light', 'auto', 'dark'].forEach(mode => {
+        const btn = document.getElementById(`theme-btn-${mode}`);
+        if (btn) {
+          if (AppState.theme === mode) {
+            btn.classList.add('is-current');
+          } else {
+            btn.classList.remove('is-current');
+          }
+        }
+      });
+    }
+
+    // Refresh (forces fresh network fetch & cache bypass), GPS, Theme, Simple Mode & Fullscreen
     document.getElementById('refresh-btn').addEventListener('click', () => {
-      fetchWeatherData(AppState.location.latitude, AppState.location.longitude);
+      fetchWeatherData(AppState.location.latitude, AppState.location.longitude, true);
     });
     document.getElementById('gps-btn').addEventListener('click', requestGPSLocation);
     const simpleModeBtn = document.getElementById('simple-mode-btn');
@@ -4167,17 +4691,26 @@
     document.getElementById('fullscreen-btn').addEventListener('click', toggleFullScreen);
     document.getElementById('theme-toggle-btn').addEventListener('click', cycleTheme);
 
-    // Initial Start
+    // Initial Start & Smart Lifecycle Management
     window.addEventListener('DOMContentLoaded', () => {
       loadSavedState();
       checkInitialHashModes();
       updateFullscreenScale();
+      renderPresetCityChips();
+      updateThemeButtonsUI();
       setupModalEvents();
-      fetchWeatherData(AppState.location.latitude, AppState.location.longitude);
+      fetchWeatherData(AppState.location.latitude, AppState.location.longitude, false);
+      startWeatherPolling();
 
-      setInterval(() => {
-        fetchWeatherData(AppState.location.latitude, AppState.location.longitude);
-      }, 15 * 60 * 1000);
+      // Page Visibility Awareness: refresh if data is stale when switching back to tab
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          const cached = WeatherCache.get(AppState.location.latitude, AppState.location.longitude);
+          if (!cached || !cached.isFresh) {
+            fetchWeatherData(AppState.location.latitude, AppState.location.longitude, false);
+          }
+        }
+      });
     });
   </script>
 </body>
